@@ -1,0 +1,15 @@
+<dx-data-grid id="roles" [dataSource]="dataSource" [showBorders]="true">
+  <dxo-editing mode="row" [allowAdding]="true" [allowUpdating]="true" [allowDeleting]="true">
+  </dxo-editing>
+  <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+  <dxi-column dataField="name" [caption]="'角色名'"></dxi-column>
+  <dxi-column dataField="createTime" dataType="date" [caption]="'创建时间'"></dxi-column>
+  <dxi-column dataField="menus" caption="菜单权限" editCellTemplate="editCellTemplate" cellTemplate="cellTemplate" >
+  </dxi-column>
+  <div *dxTemplate="let cellInfo of 'cellTemplate'">
+  <tree-lookup [selection]="'none'" [dataSource]="cellInfo.value" [columns]="menuColumns"></tree-lookup>
+  </div>
+  <div *dxTemplate="let cellInfo of 'editCellTemplate'"> 
+      <tree-lookup  [selection]="'multiple'" [(value)]="cellInfo.value" (valueChange)="cellInfo.setValue($event)" [mode]="Mode.Edit" [dataSource]="editMenuDataSource" [columns]="menuColumns"></tree-lookup>
+  </div>
+</dx-data-grid>

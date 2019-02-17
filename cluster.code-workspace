@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "master"
+		},
+		{
+			"path": "worker"
+		}
+	],
+	"settings": {}
+}

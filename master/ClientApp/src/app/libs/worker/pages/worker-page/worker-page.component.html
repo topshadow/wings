@@ -1,0 +1,49 @@
+<dx-data-grid #workerGrid [dataSource]="workerDataSource" [showBorders]="true" [selectedRowKeys]="selectedRowKeys"
+    (onSelection)="selectWorkerChange($event)">
+    <dxo-editing mode="row" [allowAdding]="true" [allowUpdating]="true" [allowDeleting]="true">
+    </dxo-editing>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+    <dxi-column dataField="ip" [caption]="'IP'"></dxi-column>
+    <dxi-column dataField="alias" [caption]="'创建时间'"></dxi-column>
+    <dxi-column dataField="createTime" dataType="date" [caption]="'创建时间'"></dxi-column>
+    <dxi-column dataField="lastLoginTime" dataType="date" [caption]="'上次登录时间'"></dxi-column>
+    <dxi-column dataField="remark" caption="备注">
+    </dxi-column>
+
+</dx-data-grid>
+
+<div id="employeeInfo" *ngIf="workerGrid.selectedRowKeys.length">
+  <h4>进程列表</h4>
+  <dx-data-grid #gameProcessGrid [dataSource]="gameProcessDataSource" [showBorders]="true"
+                [selectedRowKeys]="keys" (onSelection)="selectGameProcess($event)">
+    <dxo-editing mode="row" [allowAdding]="true" [allowUpdating]="true" [allowDeleting]="true">
+    </dxo-editing>
+    <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxi-column dataField="windowImageUrl" [width]="100" [allowFiltering]="false" [caption]="'屏幕图像'" cellTemplate="cellTemplate"></dxi-column>
+    <dxi-column dataField="pid.value" [caption]="'进程ID'"></dxi-column>
+    <dxi-column dataField="windowTitle" [caption]="'窗口标题'"></dxi-column>
+    <!--<dxi-column dataField="lastLoginTime" dataType="date" [caption]="'上次登录时间'"></dxi-column>-->
+
+    <div *dxTemplate="let data of 'cellTemplate'">
+      <img [src]="data.value" style="max-width:100px" (click)="popImage(data.value)" />
+      <dx-popup class="popup"
+                [width]="'100%'"
+                [height]="'100%'"
+                [showTitle]="true"
+                title="当前屏幕详情"
+                [dragEnabled]="false"
+                [closeOnOutsideClick]="true"
+                [(visible)]="popImageVisible">
+        <div *dxTemplate="let data of 'content'">
+          <img [src]="popImageUrl" />
+        </div>
+      </dx-popup>
+    </div>
+  </dx-data-grid>
+  <div *ngIf="selectedGameProcess">
+    <dx-button [text]="'管理'" type="success" (onClick)="goGameProcessDetailPage()"></dx-button>
+
+  </div>
+</div>

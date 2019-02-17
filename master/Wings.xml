@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wings</name>
+    </assembly>
+    <members>
+        <member name="T:Wings.Framework.Auth.Bean.LoginBean">
+            <summary>
+            登录Bean
+            </summary>
+        </member>
+        <member name="F:Wings.Framework.Auth.Bean.LoginBean.username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:Wings.Framework.Auth.Bean.LoginBean.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.Auth.Controller.SignController">
+            <summary>
+            登录注册模块
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.Auth.Controller.SignController.login">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Auth.Controller.SignController.myToken(System.String)">
+            <summary>
+            获取登录token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Framework.Cluster.Controllers.GameAutoController">
+            <summary>
+            游戏自动化控制器
+            </summary>
+        </member>
+        <member name="F:Wings.Framework.Cluster.Controllers.GameAutoController.ProcessId">
+            <summary>
+            写死的静态游戏id
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Controllers.GameAutoController.resetPosition">
+            <summary>
+             重置位置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Framework.Cluster.Service.GameAuto">
+            <summary>
+            游戏自动化脚本
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.Cluster.Service.GameAuto.Position">
+            <summary>
+            地图上的点
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.GameAuto.Position.#ctor(System.Int32,System.Int32)">
+            <summary>
+            位置初始化
+            </summary>
+            <param name="_x"></param>
+            <param name="_y"></param>
+        </member>
+        <member name="F:Wings.Framework.Cluster.Service.GameAuto.titleHeight">
+            <summary>
+            梦幻西游标题高度
+            </summary>
+        </member>
+        <member name="F:Wings.Framework.Cluster.Service.GameAuto.positions">
+            <summary>
+            地点列表
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.GameAuto.zhuagui(System.IntPtr)">
+            <summary>
+            抓鬼任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.GameAuto.Click(System.IntPtr,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            鼠标位移事件
+            </summary>
+            <param name="wind"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="reset"></param>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.GameAuto.ClickPosition(System.IntPtr,Wings.Framework.Cluster.Service.GameAuto.Position)">
+            <summary>
+            点击位置
+            </summary>
+            <param name="wind"></param>
+            <param name="position"></param>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.GameAuto.MakeLParam(System.Int32,System.Int32)">
+            <summary>
+            长类型指针
+            </summary>
+            <param name="wLow"></param>
+            <param name="wHigh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.Util.CaptureScreen(System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Cluster.Service.Util.RunExe(System.String,System.String,System.Int32)">
+            <summary>
+            启动exe
+            </summary>
+            <param name="filePath">程序路径</param>
+            <param name="argument">参数</param>
+            <param name="waitTime">等待时间，毫秒计</param>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.MenuController.menuList(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="loadOptions"></param>    
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.MenuController.Post(Wings.Framework.Controllers.BodyData)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.MenuController.Delete(System.Int32)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.MenuController.Put(System.Int32,Wings.Framework.Controllers.BodyData)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="key"></param>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Framework.RBAC.Controllers.RoleController">
+            <summary>
+            角色控制器
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.RoleController.#ctor(Wings.Framework.RBAC.RBACContext)">
+            <summary>
+            
+            </summary>
+            <param name="_rbacContext"></param>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.RoleController.orgList(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="loadOptions"></param>    
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.RoleController.Post(Wings.Framework.Controllers.BodyData)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.RoleController.Delete(System.Int32)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.RBAC.Controllers.RoleController.Put(System.Int32,Wings.Framework.Controllers.BodyData)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="key"></param>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Framework.RBAC.ApplicationUser">
+            <summary>
+            应用用户
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.RBAC.RBACContext">
+            <summary>
+            角色权限模块
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.RBAC.RBACContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Wings.Framework.RBAC.RBACContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Wings.Framework.RBAC.RBACContext.Orgs">
+            <summary>
+            组织: 不同组织的角色不同
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.RBAC.Org">
+            <summary>
+            组织表
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Org.orgId">
+            <summary>
+            组织Id
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Org.orgName">
+            <summary>
+            组织名字
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Org.parentId">
+            <summary>
+            上级组织Id
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Org.createTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.RBAC.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.User.userId">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.User.createTime">
+            <summary>
+            创建时间,默认为当前时间
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.User.password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.RBAC.Menu">
+            <summary>
+            菜单表
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Menu.menuId">
+            <summary>
+            菜单id
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.RBAC.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.RBAC.Role.roleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.Controllers.BodyData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Wings.Framework.Controllers.BodyData.values">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Wings.Framework.Controllers.OrgController">
+            <summary>
+            组织的增删改查
+            </summary>
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.list(Wings.Framework.RBAC.Org)">
+            <summary>
+            列出所有组织
+            </summary>
+            <param name="org"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.#ctor(Wings.Framework.RBAC.RBACContext)">
+            <summary>
+            
+            </summary>
+            <param name="_rbacContext"></param>
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.orgList(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="loadOptions"></param>    
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.Post(Wings.Framework.Controllers.BodyData)">
+            <summary>
+            创建组织
+            </summary>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.Delete(System.Int32)">
+            <summary>
+            删除组织
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Framework.Controllers.OrgController.Put(System.Int32,Wings.Framework.Controllers.BodyData)">
+            <summary>
+            更新组织
+            </summary>
+            <param name="key"></param>
+            <param name="bodyData"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

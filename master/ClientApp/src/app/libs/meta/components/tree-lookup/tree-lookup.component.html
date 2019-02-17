@@ -1,0 +1,16 @@
+<dx-button class="button-info" text="查看" (onClick)="popupVisible=true"></dx-button>
+<dx-popup class="popup" [width]="'100%'" [showTitle]="true" title="添加" [dragEnabled]="false"
+    [closeOnOutsideClick]="true" [(visible)]="popupVisible">
+    <dx-tree-list id="orgs" [dataSource]="dataSource" keyExpr="menuId" parentIdExpr="parentId" [columnAutoWidth]="true"
+        [wordWrapEnabled]="true" [showBorders]="true" style="width:100%" [(selectedRowKeys)]="selectedRowKeys" >
+        <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-selection mode="multiple"></dxo-selection>
+        <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+        <dxo-editing mode="row" [allowAdding]="false" [allowUpdating]="false" [allowDeleting]="false">
+        </dxo-editing>
+        <dxo-selection [mode]="selection" >
+        </dxo-selection>
+    </dx-tree-list>
+    <dx-button [text]="'提交'" [type]="'success'" (onClick)="submit()" *ngIf="mode==ModeEnum.Edit||mode==ModeEnum.Create"></dx-button>
+</dx-popup>

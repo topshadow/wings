@@ -1,0 +1,10 @@
+<dx-data-grid #positionGrid [dataSource]="positionDataSource" [showBorders]="true"
+              [selectedRowKeys]="keys" (onSelection)="selectGameProcess($event)">
+  <dxo-editing mode="row" [allowAdding]="true" [allowUpdating]="true" [allowDeleting]="true">
+  </dxo-editing>
+  <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+  <dxo-selection mode="single"></dxo-selection>
+  <dxi-column dataField="windowImageUrl" [width]="100" [allowFiltering]="false" [caption]="'屏幕图像'" cellTemplate="cellTemplate"></dxi-column>
+  <dxi-column dataField="pid.value" [caption]="'进程ID'"></dxi-column>
+ 
+</dx-data-grid>

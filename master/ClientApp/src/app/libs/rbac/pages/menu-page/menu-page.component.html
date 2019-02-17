@@ -1,0 +1,23 @@
+<dx-tree-list id="orgs"
+              [dataSource]="dataSource"
+              keyExpr="menuId"
+              parentIdExpr="parentId"
+              [columnAutoWidth]="true"
+              [wordWrapEnabled]="true"
+              [showBorders]="true" style="width:100%">
+  <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <dxo-selection mode="multiple"></dxo-selection>
+  <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+  <dxo-editing mode="row"
+               [allowAdding]="true"
+               [allowUpdating]="true"
+               [allowDeleting]="true">
+  </dxo-editing>
+
+  <dxi-column dataField="text" [width]="300" caption="菜单名字"></dxi-column>
+  <dxi-column dataField="menuCode" dataType="number" [width]="300" caption="菜单权限"></dxi-column>
+  <dxi-column dataField="link" dataType="text" [width]="300" caption="地址"></dxi-column>
+  <dxi-column dataField="createTime" [width]="300" caption="创建时间" dataType="date"></dxi-column>
+
+</dx-tree-list>

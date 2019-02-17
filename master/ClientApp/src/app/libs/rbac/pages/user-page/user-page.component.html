@@ -1,0 +1,22 @@
+<dx-data-grid id="roles" [dataSource]="dataSource" [showBorders]="true" (onEditorPreparing)="onEditorPreparing($event)">
+    <dxo-editing mode="row" [allowAdding]="true" [allowUpdating]="true" [allowDeleting]="true" >
+    </dxo-editing>
+    <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
+    <dxi-column dataField="nickname" [caption]="'昵称'"></dxi-column>
+    <dxi-column dataField="mobile" caption="手机号"></dxi-column>
+    <dxi-column dataField="username" [caption]="'用户名'"></dxi-column>
+    <dxi-column dataField="password" caption="密码"  [visible]="false" [formItem]="{visible:true}"   ></dxi-column>
+    <dxi-column dataField="createTime" dataType="date" [caption]="'创建时间'"></dxi-column>
+    <dxo-editing 
+    mode="popup"
+    [allowUpdating]="true" >
+    <dxo-popup
+        title="编辑"
+        [showTitle]="true"
+        [width]="700"
+        [height]="600"
+        [position]="{ my: 'center', at: 'center', of: window }">
+    </dxo-popup>
+</dxo-editing>
+
+</dx-data-grid>  
