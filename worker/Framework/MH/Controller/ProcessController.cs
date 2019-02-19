@@ -36,7 +36,8 @@ namespace Wings.worker.Framework.MH.Controller
                 var currentWindow = GetForegroundWindow();
                 SetForegroundWindow(gameProcess.pid);
                 System.IO.MemoryStream stream = new MemoryStream();
-                var bitmap = Capture.CaptureScreen(gameProcess.pid);
+                
+                var bitmap = Capture.CaptureWindow(gameProcess.pid);
                 var key = gameProcess.pid.ToString() + "-" + DateTime.Now.Millisecond.ToString() + ".png";
                 var putResult = OSSService.uploadBitmap("wingsworker", key, bitmap);
                 gameProcess.windowImageUrl = OSSService.url + "/" + key;

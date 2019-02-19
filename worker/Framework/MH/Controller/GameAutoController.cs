@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Wings.worker.Framework.Common.DTO;
 using Wings.worker.Framework.MH.Service;
+using static PInvoke.User32;
+using static PInvoke.Gdi32;
+using  PInvoke;
+
+
 
 namespace Wings.worker.Framework.MH.Controller {
     /// <summary>
@@ -31,6 +36,10 @@ namespace Wings.worker.Framework.MH.Controller {
         public List<GameProcess> listGameProcess () {
             return null;
         }
+        public bool autoFlight (){
+           
+            return true;
 
+        }
     }
 }
