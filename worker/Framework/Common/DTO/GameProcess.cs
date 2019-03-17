@@ -2,21 +2,22 @@ using System;
 
 namespace Wings.worker.Framework.Common.DTO {
 
+    
     /// <summary>
     /// 游戏进程数据结构
     /// </summary>
     public class GameProcess {
+        /// <summary>
+        /// 是否已经登录
+        /// </summary>
+        public bool isLogin { get; set; }
         public int gameId { get; set; }
         /// <summary>
         /// 窗口标题
         /// </summary>
         /// <value></value>
-        public GameProcess (string windowTitle, IntPtr pid, string windowImageUrl, string status, string gameStatus) {
-            this.windowTitle = windowTitle;
-            this.pid = pid;
-            this.windowImageUrl = windowImageUrl;
-            this.status = status;
-            this.gameStatus = gameStatus;
+        public GameProcess () {
+         
 
         }
         public string windowTitle { get; set; }
@@ -26,6 +27,11 @@ namespace Wings.worker.Framework.Common.DTO {
         /// </summary>
         /// <value></value>
         public IntPtr pid { get; set; }
+        /// <summary>
+        /// 窗口句柄
+        /// </summary>
+        public IntPtr hwnd { get; set; }
+
         /// <summary>
         /// 窗口图像地址
         /// </summary>

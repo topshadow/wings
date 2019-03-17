@@ -34,11 +34,11 @@ namespace Wings.worker.Framework.Common.Service
         public static PutObjectResult uploadBitmap(string bucketName, string key, Bitmap bitmap)
         {
 
-            System.IO.MemoryStream stream = new MemoryStream();
+            var stream = new MemoryStream();
             bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
             var bites = stream.ToArray();
             var ms = new MemoryStream(bites);
-            var rtn= OSSService.uploadFile("wingsworker", key,ms);
+            var rtn= OSSService.uploadFile(bucketName, key,ms);
             ms.Close();
             bitmap.Dispose();
             return rtn;

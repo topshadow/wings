@@ -6,9 +6,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { DxDataGridModule, DxFormModule, DxPopupModule } from 'devextreme-angular';
+import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [
   { path: "admin/rbac", loadChildren: "./libs/rbac/rbac.module#RbacModule" },
+  { path: "admin/xss", loadChildren: "./libs/xss/xss.module#XSSModule" },
   { path: "admin/worker", loadChildren: "./libs/worker/worker.module#WorkerModule" },
   {
     path: 'display-data',
@@ -38,7 +40,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule,
+  imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule, SharedModule,
     DxPopupModule
 
   ],

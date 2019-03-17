@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Wings.Framework.Controllers;
 using Wings.Framework.RBAC.Model;
 namespace Wings.Framework.RBAC.Controllers {
     /// <summary>
@@ -18,6 +17,12 @@ namespace Wings.Framework.RBAC.Controllers {
     // [ApiController]
     public class RoleController : ControllerBase {
 
+        [HttpGet("[action]")]
+        public bool migrate()
+        {
+            this.rbacContext.Database.Migrate();
+            return true;
+        }
         ///
         public RBACContext rbacContext { get; }
         /// <summary>

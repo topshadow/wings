@@ -22,6 +22,12 @@ export const navigation = [
     ]
   },
   {
+    text: "渗透测试",
+    icon:"floder",
+    items: [{text:"xss-test",path:"/admin/xss/xss-test"}]
+
+  },
+  {
     text: 'Examples',
     icon: 'folder',
     items: [

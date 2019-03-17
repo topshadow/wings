@@ -52,6 +52,7 @@ namespace Wings.Framework.RBAC.Model {
         /// 上级组织Id
         /// </summary>
         public int parentId { get; set; }
+      
         /// <summary>
         /// 创建时间
         /// </summary>
@@ -60,13 +61,13 @@ namespace Wings.Framework.RBAC.Model {
     /// <summary>
     /// 用户
     /// </summary>
-    [Table ("Users")]
+    [Table("Users")]
     public class User {
         /// <summary>
         /// 用户id
         /// </summary>
         [Key]
-        [DatabaseGenerated (DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
         public string username { get; set; }
         public int orgId { get; set; }
@@ -79,6 +80,11 @@ namespace Wings.Framework.RBAC.Model {
         /// </summary>
         public string password { get; set; }
         public string roleIds { get; set; }
+        /// <summary>
+        /// 角色列表
+        /// </summary>
+        [NotMapped]
+        public List<Role> roles{ get; set; }
         /// <summary>
         /// 昵称
         /// </summary>

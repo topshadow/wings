@@ -16,7 +16,7 @@ namespace Wings.worker.Framework.Common.Service {
         public delegate bool EnumWindowsProc (IntPtr hWnd, IntPtr lParam);
         public static List<GameProcess> findGameProcesses (string title) {
             var windows = FindWindowsContainsText (title);
-            var gameProcesses = from window in windows select new GameProcess (GetWindowText (window), window, "", "", "");
+            var gameProcesses = from window in windows select new GameProcess {windowTitle= GetWindowText(window),hwnd= window };
             return new List<GameProcess> (gameProcesses);
 
         }

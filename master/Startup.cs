@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using Wings.Framework.Cluster.Model;
 using Wings.Framework.RBAC.Model;
+using Wings.Framework.XSS.Service;
 
 namespace Wings {
     public class Startup {
@@ -93,16 +94,28 @@ namespace Wings {
                     builder.AllowAnyOrigin ().AllowAnyMethod ().AllowAnyMethod ().AllowCredentials ();
                 });
             });
+            services.AddHttpClient();
+
+            services.AddScoped<IXSSService, XSSService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// 配置APP
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure (IApplicationBuilder app, IHostingEnvironment env) {
             app.UseSwagger ();
             app.UseCors ("AllowAllOrigin");
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI (c => {
+
+            
+                // Requires using RazorPagesMovie.Models;
+                //SeedData.Initialize(services);
+                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+                // specifying the Swagger JSON endpoint.
+                app.UseSwaggerUI (c => {
                 c.SwaggerEndpoint ("/swagger/v1/swagger.json", "My API V1");
             });
 
@@ -131,6 +144,17 @@ namespace Wings {
                     spa.UseAngularCliServer (npmScript: "start");
                 }
             });
+
+            //自动同步数据库
+            this.InitializeDatabase(app);
+        }
+
+        private void InitializeDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<RBACContext>().Database.Migrate();
+    }
         }
     }
 }

@@ -1,0 +1,29 @@
+<div class="form">
+  <div class="dx-fieldset">
+    <div class="dx-field">
+      <div class="dx-field-label">请求方法</div>
+      <div class="dx-field-value">
+        <dx-select-box [items]="items" [(value)]="method"></dx-select-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">URL地址</div>
+      <div class="dx-field-value">
+        <dx-text-box [(value)]="url"></dx-text-box>
+      </div>
+    </div>
+
+    <div class="dx-field" *ngIf="method=='FORM_POST'">
+      <div class="dx-field-label">表单数据</div>
+      <div class="dx-field-value">
+        <dx-text-area [(value)]="formData"></dx-text-area>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center">
+    <dx-button text="提交" (onClick)="submit()"></dx-button>
+  </div>
+
+</div>

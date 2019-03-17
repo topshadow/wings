@@ -11,7 +11,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Wings.Framework.RBAC;
 using Wings.Framework.RBAC.Model;
 
-namespace Wings.Framework.Controllers {
+namespace Wings.Framework.RBAC.Controllers {
     /// <summary>
     /// 
     /// </summary>

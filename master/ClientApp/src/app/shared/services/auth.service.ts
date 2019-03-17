@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
   loggedIn = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public httpClient: HttpClient) { }
 
-  logIn(login: string, passord: string) {
+  async logIn(login: string, password: string) {
     this.loggedIn = true;
+  var rtn=  await this.httpClient.post("/api/Auth/Sign/login", { username: login, password }).toPromise()
     this.router.navigate(['/']);
   }
 

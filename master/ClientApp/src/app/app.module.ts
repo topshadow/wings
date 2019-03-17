@@ -7,12 +7,16 @@ import { FooterModule, LoginFormModule } from './shared/components';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { AppRoutingModule } from './app-routing.module';
 import { DxDataGridModule, DxDateBoxModule, DxPopupModule } from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    SharedModule,
+    HttpClientModule,
     BrowserModule,
     SideNavOuterToolbarModule,
     SideNavInnerToolbarModule,

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Wings.Framework.Cluster.Model;
-using Wings.Framework.Controllers;
+using Wings.Framework.RBAC.Controllers;
 
 namespace Wings.Framework.Cluster.Controllers {
     /// <summary>

@@ -7,7 +7,6 @@ using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Wings.Framework.Controllers;
 using Wings.Framework.RBAC.Model;
 
 namespace Wings.Framework.RBAC.Controllers {

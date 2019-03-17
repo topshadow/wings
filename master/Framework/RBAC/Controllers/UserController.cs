@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Wings.Framework.Controllers;
 using Wings.Framework.RBAC.Model;
 namespace Wings.Framework.RBAC.Controllers {
     /// <summary>
@@ -31,7 +30,10 @@ namespace Wings.Framework.RBAC.Controllers {
         /// <param name="loadOptions"></param>    
         [HttpGet]
         public object userList ([FromForm] DataSourceLoadOptions loadOptions) {
-            return DataSourceLoader.Load (this.rbacContext.Users, loadOptions);
+            var query = from user in this.rbacContext.Users select
+                        new User {username=user.username,orgId=user.orgId,
+                            roleIds =user.roleIds,roles=(from role in this.rbacContext.Roles where user.roleIds.Contains(","+role.roleId+",") select role).ToList() };
+            return DataSourceLoader.Load (query, loadOptions);
         }
 
         /// <summary>

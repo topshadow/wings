@@ -22,13 +22,14 @@
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.1.1" />
     <PackageReference Include="DevExtreme.Web" Version="18.2.5" />
     <PackageReference Include="JWT" Version="5.0.0-beta5" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="PInvoke.Gdi32" Version="0.5.184" />
     <PackageReference Include="PInvoke.User32" Version="0.5.184" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
@@ -45,12 +46,16 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\libs\rbac\pages\org-page\org-page.component.ts" />
     <None Remove="ClientApp\src\app\libs\worker\pages\game-process-detail-page\game-process-detail-page.component.ts" />
+    <None Remove="ClientApp\src\app\libs\xss\pages\xss-test-page\xss-test-page.component.ts" />
+    <None Remove="ClientApp\src\app\libs\xss\xss.module.ts" />
     <None Remove="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\libs\rbac\pages\org-page\org-page.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\libs\worker\pages\game-process-detail-page\game-process-detail-page.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\libs\xss\pages\xss-test-page\xss-test-page.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\libs\xss\xss.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\shared.module.ts" />
   </ItemGroup>
 

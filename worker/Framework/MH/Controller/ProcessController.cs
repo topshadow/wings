@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using Wings.worker.Framework.Common.DTO;
 using Wings.worker.Framework.Common.Service;
 using Wings.worker.Framework.MH.Service;
+using worker.Framework.MH.Service;
 using static PInvoke.User32;
 
 namespace Wings.worker.Framework.MH.Controller
@@ -33,15 +34,20 @@ namespace Wings.worker.Framework.MH.Controller
             var gameProcesses = Finder.findGameProcesses(name);
             foreach (var gameProcess in gameProcesses)
             {
+                int pid = 0;
+                GetWindowThreadProcessId(gameProcess.hwnd, out pid);
+                GameAuto.resetPosition((IntPtr)pid);
                 var currentWindow = GetForegroundWindow();
-                SetForegroundWindow(gameProcess.pid);
+                SetForegroundWindow(gameProcess.hwnd);
                 System.IO.MemoryStream stream = new MemoryStream();
+                var rectangle = new Rectangle(470, 200, 100, 50);
+                var bitmap = Capture.CaptureWindowRectangle(gameProcess.hwnd, rectangle);
+               gameProcess.isLogin= ValidateStatus.isLoginPage(gameProcess.hwnd);
                 
-                var bitmap = Capture.CaptureWindow(gameProcess.pid);
-                var key = gameProcess.pid.ToString() + "-" + DateTime.Now.Millisecond.ToString() + ".png";
+                var key = gameProcess.hwnd.ToString() + "-" + DateTime.Now.Millisecond.ToString() + ".png";
                 var putResult = OSSService.uploadBitmap("wingsworker", key, bitmap);
+                gameProcess.pid =(IntPtr)pid;
                 gameProcess.windowImageUrl = OSSService.url + "/" + key;
-                gameProcess.windowTitle = Finder.getWindowTitle(gameProcess.pid);
                 gameProcess.status = "active";
                 SetForegroundWindow(currentWindow);
             }

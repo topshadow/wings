@@ -16,6 +16,14 @@ export class UserPageComponent {
       ajaxOptions.xhrFields = { withCredentials: true };
     }
   });
+  calculateUserRoles = (data) => {
+    let roles = data.roles;
+    if (roles) {
+      return roles.map(role => role.name).join(",");
+    } else {
+      return "";
+    }
+  }
   onEditorPreparing(e) {
     if (e.parentType == "dataRow" && e.dataField == "password")
       e.editorOptions.mode = 'password';

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -52,14 +53,16 @@ namespace worker
             //LogProvider.SetCurrentLogProvider(new ConsoleLogProvider());
             //RunProgram().GetAwaiter().GetResult();
 
-            CreateWebHostBuilder(args).Build().Run();
+       
+                CreateWebHostBuilder(args).Build().Run();
             // trigger async evaluation
             // define the job and tie it to our HelloJob class
 
 
         }
+    
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseUrls("http://0.0.0.0:80");
